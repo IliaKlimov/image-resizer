@@ -40,7 +40,6 @@ class SizeForm(forms.Form):
         cleaned_data = super().clean()
         width_ = cleaned_data.get('width')
         height_ = cleaned_data.get('height')
-        print(width_, height_)
         if width_ is None and height_ is None:
             raise forms.ValidationError("Заполните хотя бы одно поле")
         return cleaned_data

@@ -42,7 +42,6 @@ def img_edit(request, img_id):
 
     if request.method == 'POST':
         if form.is_valid():
-            print("valid")
             height = int(request.POST.get('height'))
             width = int(request.POST.get('width'))
 
