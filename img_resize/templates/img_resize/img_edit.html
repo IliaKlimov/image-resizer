@@ -1,0 +1,24 @@
+{% extends 'img_resize/base.html' %}
+
+{% block content %}
+    <a href="{% url 'img_list' %}">Назад к списку</a>
+    <h1>{{ img_filename }}</h1>
+
+    <form action="/img/{{ img_id }}" method="post">
+        {% csrf_token %}
+        {% for field in form.visible_fields %}
+            <label for="{{ field.id_for_label }}"> {{ field.label }} </label> <br/>
+            {{ field }} <br/>
+            {{ field.errors. }}<br/>
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <b>{{ error|escape }}</b><br/>
+
+        {% endfor %}
+
+        <br/>
+        <input type="submit" value="Отправить">
+    </form>
+    <br/>
+    <img src="{{img_obj.img_resized.url }}" alt="">
+{% endblock %}
