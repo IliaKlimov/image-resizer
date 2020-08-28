@@ -1,11 +1,20 @@
 {% extends 'img_resize/base.html' %}
 
+{% block title %}
+    Список изображений
+{% endblock %}
+
 {% block content %}
     <h1>Список изображений</h1>
-    {% for el in images %}
-        <a href="img/{{ el.id }}">{{ el }}</a>
+    {% if images %}
+        {% for el in images %}
+            <a href="img/{{ el.id }}">{{ el }}</a>
+            <br/>
+        {% endfor %}
         <br/>
-    {% endfor %}
-    <br/>
+    {% else %}
+        <h5>Нет доступных изображений</h5>
+    {% endif %}
+
     <a href="{% url 'img_add' %}">Добавить изображение</a>
 {% endblock %}

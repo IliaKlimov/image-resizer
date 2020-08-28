@@ -1,5 +1,9 @@
 {% extends 'img_resize/base.html' %}
 
+{% block title %}
+    Список изображений
+{% endblock %}
+
 {% block content %}
     <a href="{% url 'img_list' %}">Назад к списку</a>
     <h1>Новое изображение</h1>
