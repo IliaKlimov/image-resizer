@@ -14,7 +14,7 @@
         {% for field in form.visible_fields %}
             <label for="{{ field.id_for_label }}"> {{ field.label }} </label> <br/>
             {{ field }} <br/>
-            {{ field.errors. }}<br/>
+            {{ field.errors}}<br/>
         {% endfor %}
         {% for error in form.non_field_errors %}
             <b>{{ error|escape }}</b><br/>
